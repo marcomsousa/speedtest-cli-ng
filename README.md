@@ -1,7 +1,9 @@
 # speedtest-ng
 
 [![CI](https://github.com/marcomsousa/speedtest-ng/actions/workflows/ci.yml/badge.svg)](https://github.com/marcomsousa/speedtest-ng/actions/workflows/ci.yml)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
+[![PyPI version](https://img.shields.io/pypi/v/speedtest-ng.svg)](https://pypi.org/project/speedtest-ng/)
+[![Python versions](https://img.shields.io/pypi/pyversions/speedtest-ng.svg)](https://pypi.org/project/speedtest-ng/)
+[![Downloads](https://static.pepy.tech/badge/speedtest-ng)](https://pepy.tech/projects/speedtest-ng)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](https://github.com/marcomsousa/speedtest-ng/blob/master/LICENSE)
 
 Modern, actively maintained **Python 3.11+** `asyncio` and raw-TCP (`OoklaServer`) successor to `sivel/speedtest-cli`, providing both a CLI (`speedtest` / `speedtest-cli`) and a drop-in library API (`import speedtest`) engineered for Gigabit+ fiber accuracy and Home Assistant's `speedtestdotnet` integration.
