@@ -1,0 +1,107 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "speedtest-cli-ng"
+version = "3.0.0"
+description = "Modern async & raw-TCP command line interface and Python library for testing internet bandwidth using speedtest.net"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Marco Sousa", email = "marcomsousa@gmail.com" },
+  { name = "Matt Martz", email = "matt@sivel.net" },
+]
+keywords = ["speedtest", "speedtest.net", "bandwidth", "asyncio", "home-assistant"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
+]
+dependencies = ["aiohttp>=3.10.0"]
+
+[project.scripts]
+speedtest = "speedtest.cli:main"
+speedtest-cli = "speedtest.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/marcomsousa/speedtest-cli-ng"
+Repository = "https://github.com/marcomsousa/speedtest-cli-ng"
+Issues = "https://github.com/marcomsousa/speedtest-cli-ng/issues"
+Changelog = "https://github.com/marcomsousa/speedtest-cli-ng/blob/master/CHANGELOG.md"
+
+[dependency-groups]
+dev = [
+  "aioresponses>=0.7.8",
+  "mypy>=1.15.0",
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.25.0",
+  "pytest-cov>=6.0.0",
+  "ruff>=0.11.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["speedtest"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["speedtest", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "ASYNC",
+  "B",
+  "C4",
+  "E",
+  "F",
+  "I",
+  "PT",
+  "PTH",
+  "RUF",
+  "SIM",
+  "TC",
+  "UP",
+  "W",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["speedtest"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+addopts = "-m 'not real_api_call' --cov=speedtest --cov-branch --cov-report=term-missing"
+filterwarnings = ["error"]
+markers = [
+  "real_api_call: live network tests against speedtest.net (opt-in)",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["speedtest"]
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+exclude_also = [
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+  "@overload",
+]

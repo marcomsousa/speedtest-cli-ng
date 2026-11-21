@@ -25,3 +25,15 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# Modern Python tooling & local environments
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.env
+__pycache__/
+htmlcov/
+coverage.xml
+*.egg-info/
+
