@@ -1,4 +1,4 @@
-"""Exception hierarchy for speedtest-cli-ng.
+"""Exception hierarchy for speedtest-ng.
 
 Preserves full drop-in compatibility with ``speedtest-cli`` 2.1.3 so downstream
 consumers such as Home Assistant Core's ``speedtestdotnet`` integration can

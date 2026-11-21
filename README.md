@@ -1,12 +1,12 @@
-# speedtest-cli-ng
+# speedtest-ng
 
-[![CI](https://github.com/marcomsousa/speedtest-cli-ng/actions/workflows/ci.yml/badge.svg)](https://github.com/marcomsousa/speedtest-cli-ng/actions/workflows/ci.yml)
+[![CI](https://github.com/marcomsousa/speedtest-ng/actions/workflows/ci.yml/badge.svg)](https://github.com/marcomsousa/speedtest-ng/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](https://github.com/marcomsousa/speedtest-cli-ng/blob/master/LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](https://github.com/marcomsousa/speedtest-ng/blob/master/LICENSE)
 
 Modern, actively maintained **Python 3.11+** `asyncio` and raw-TCP (`OoklaServer`) successor to `sivel/speedtest-cli`, providing both a CLI (`speedtest` / `speedtest-cli`) and a drop-in library API (`import speedtest`) engineered for Gigabit+ fiber accuracy and Home Assistant's `speedtestdotnet` integration.
 
-> **Attribution:** `speedtest-cli-ng` is an independent continuation of Matt Martz's archived [`sivel/speedtest-cli`](https://github.com/sivel/speedtest-cli) project (`Copyright 2012 Matt Martz`), preserving the **Apache License 2.0** and full Git history.
+> **Attribution:** `speedtest-ng` is an independent continuation of Matt Martz's archived [`sivel/speedtest-cli`](https://github.com/sivel/speedtest-cli) project (`Copyright 2012 Matt Martz`), preserving the **Apache License 2.0** and full Git history.
 
 ## What's New in `3.0.0`
 
@@ -19,13 +19,13 @@ Modern, actively maintained **Python 3.11+** `asyncio` and raw-TCP (`OoklaServer
 ## Installation
 
 ```bash
-uv add speedtest-cli-ng
+uv add speedtest-ng
 ```
 
 or with `pip`:
 
 ```bash
-pip install speedtest-cli-ng
+pip install speedtest-ng
 ```
 
 ## CLI Usage

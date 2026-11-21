@@ -1,1 +1,1 @@
-"""Test suite package for speedtest-cli-ng."""
+"""Test suite package for speedtest-ng."""

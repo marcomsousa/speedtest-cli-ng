@@ -1,4 +1,4 @@
-# Execution Plan — `speedtest-cli-ng` `3.0.0` Modernization
+# Execution Plan — `speedtest-ng` `3.0.0` Modernization
 
 ## Scope & Hard Constraints
 
@@ -19,7 +19,7 @@
 
 1. Remove obsolete legacy files: `setup.py`, `setup.cfg`, `MANIFEST.in`, `tox.ini`, `.travis.yml`, `README.rst`, `tests/scripts/source.py`.
 2. Update `.gitignore` for `.venv/`, `.mypy_cache/`, `.pytest_cache/`, `.ruff_cache/`, `.env`, `__pycache__/`, `htmlcov/`, `coverage.xml`, `*.egg-info/`.
-3. Create `pyproject.toml` (PEP 621 / 639 / 735) with `name = "speedtest-cli-ng"`, `version = "3.0.0"`, `requires-python = ">=3.11"`, `license = "Apache-2.0"`, `dependencies = ["aiohttp>=3.10.0"]`, `[project.scripts]` (`speedtest` and `speedtest-cli`), `[dependency-groups].dev` (`aioresponses`, `mypy`, `pytest`, `pytest-asyncio`, `pytest-cov`, `ruff`), `ruff` (`TC`, not deprecated `TCH`), `mypy --strict` (`warn_unreachable = true`), and `pytest` (`filterwarnings = ["error"]`, `--cov-branch`, `fail_under = 95`).
+3. Create `pyproject.toml` (PEP 621 / 639 / 735) with `name = "speedtest-ng"`, `version = "3.0.0"`, `requires-python = ">=3.11"`, `license = "Apache-2.0"`, `dependencies = ["aiohttp>=3.10.0"]`, `[project.scripts]` (`speedtest` and `speedtest-cli`), `[dependency-groups].dev` (`aioresponses`, `mypy`, `pytest`, `pytest-asyncio`, `pytest-cov`, `ruff`), `ruff` (`TC`, not deprecated `TCH`), `mypy --strict` (`warn_unreachable = true`), and `pytest` (`filterwarnings = ["error"]`, `--cov-branch`, `fail_under = 95`).
 4. Run `uv lock && uv sync --all-groups`.
 
 ---

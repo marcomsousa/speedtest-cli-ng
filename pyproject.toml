@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "speedtest-cli-ng"
+name = "speedtest-ng"
 version = "3.0.0"
 description = "Modern async & raw-TCP command line interface and Python library for testing internet bandwidth using speedtest.net"
 readme = "README.md"
@@ -34,10 +34,10 @@ speedtest = "speedtest.cli:main"
 speedtest-cli = "speedtest.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/marcomsousa/speedtest-cli-ng"
-Repository = "https://github.com/marcomsousa/speedtest-cli-ng"
-Issues = "https://github.com/marcomsousa/speedtest-cli-ng/issues"
-Changelog = "https://github.com/marcomsousa/speedtest-cli-ng/blob/master/CHANGELOG.md"
+Homepage = "https://github.com/marcomsousa/speedtest-ng"
+Repository = "https://github.com/marcomsousa/speedtest-ng"
+Issues = "https://github.com/marcomsousa/speedtest-ng/issues"
+Changelog = "https://github.com/marcomsousa/speedtest-ng/blob/master/CHANGELOG.md"
 
 [dependency-groups]
 dev = [

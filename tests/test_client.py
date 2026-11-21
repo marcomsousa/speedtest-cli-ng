@@ -27,7 +27,7 @@ def test_distance_and_fake_shutdown_event() -> None:
     evt = FakeShutdownEvent()
     assert evt.is_set() is False
     assert evt.isSet() is False
-    assert speedtest.build_user_agent("3.0.0").startswith("speedtest-cli-ng/3.0.0")
+    assert speedtest.build_user_agent("3.0.0").startswith("speedtest-ng/3.0.0")
     speedtest.do_nothing(1, a=2)
 
 

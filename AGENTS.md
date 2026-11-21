@@ -1,11 +1,11 @@
-# AGENTS.md — `speedtest-cli-ng`
+# AGENTS.md — `speedtest-ng`
 
 ## 1. Project Identity & Mission
 
-- **Repository:** `marcomsousa/speedtest-cli-ng` (100% independent public mirror, `isFork: false`)
+- **Repository:** `marcomsousa/speedtest-ng` (100% independent public mirror, `isFork: false`)
 - **Upstream Origin:** `sivel/speedtest-cli` (Matt Martz) — **officially archived (read-only) on April 30, 2026**; last pushed July 20, 2024; `master` at `2.1.4b1`, last PyPI release `2.1.3`.
 - **License & Attribution:** **Apache License 2.0** (`LICENSE`). Preserve original copyright attribution (`Copyright 2012 Matt Martz`) and full Git history.
-- **Primary Target:** Modern, drop-in, actively maintained Python 3.11+ successor to `speedtest-cli` on PyPI (`speedtest-cli-ng`, exposing `import speedtest`) — engineered to modernize Home Assistant Core's built-in `speedtestdotnet` integration (`requirements = ["speedtest-cli==2.1.3"]`) and dramatically improve throughput accuracy on Gigabit+ fiber connections.
+- **Primary Target:** Modern, drop-in, actively maintained Python 3.11+ successor to `speedtest-cli` on PyPI (`speedtest-ng`, exposing `import speedtest`) — engineered to modernize Home Assistant Core's built-in `speedtestdotnet` integration (`requirements = ["speedtest-cli==2.1.3"]`) and dramatically improve throughput accuracy on Gigabit+ fiber connections.
 
 ---
 
@@ -13,7 +13,7 @@
 
 ### Phase A — Packaging, Runtime & Tooling Modernization (Implemented in `3.0.0`)
 1. **Packaging on `uv` + `hatchling` (PEP 621 / 639 / 735):**
-   - `pyproject.toml` + `uv.lock` with `requires-python = ">=3.11"`, `name = "speedtest-cli-ng"`, `speedtest/` package + `py.typed` (PEP 561), and CLI entry points `speedtest = "speedtest.cli:main"` / `speedtest-cli = "speedtest.cli:main"`.
+   - `pyproject.toml` + `uv.lock` with `requires-python = ">=3.11"`, `name = "speedtest-ng"`, `speedtest/` package + `py.typed` (PEP 561), and CLI entry points `speedtest = "speedtest.cli:main"` / `speedtest-cli = "speedtest.cli:main"`.
 2. **Legacy Shims & Deprecations Removed:**
    - Removed ~500 lines of Python 2.4–3.10 shims (`urllib2`, `httplib`, `Queue`, `urlparse`, `cgi`, `optparse`, `cStringIO`, `__builtin__`, `_Py3Utf8Output`, `FakeShutdownEvent.isSet` retained as thin alias only, `minidom` fallback `NameError`, `get_exception()`, `PY25PLUS`–`PY310PLUS`, `timeit.time.sleep()`).
    - Replaced `datetime.utcnow()` with `datetime.now(UTC)` and `global DEBUG` / `print_()` with standard `logging.getLogger("speedtest")` (enabling `"loggers": ["speedtest"]` in HA Core).
@@ -50,7 +50,7 @@
 ## 3. Repository Architecture Map
 
 ```text
-speedtest-cli-ng/
+speedtest-ng/
 ├── AGENTS.md                        # Modernization blueprint & HA invariants
 ├── CHANGELOG.md                     # Release history (3.0.0+)
 ├── CONTRIBUTING.md                  # Contribution guidelines
@@ -127,9 +127,9 @@ Verified against live `homeassistant/components/speedtestdotnet` (`__init__.py`,
   uv run pytest -m real_api_call --no-cov
   ```
 - **Publishing to PyPI:**
-  - Use **PyPI OIDC Trusted Publishing** (`marcomsousa/speedtest-cli-ng`, workflow `publish.yml`, environment `pypi`). Never commit PyPI tokens.
+  - Use **PyPI OIDC Trusted Publishing** (`marcomsousa/speedtest-ng`, workflow `publish.yml`, environment `pypi`). Never commit PyPI tokens.
   - Trigger releases via GitHub Releases (`gh release create vX.Y.Z ...`). Never reuse a deleted PyPI version filename.
 - **Upstream Home Assistant Core PR Strategy (2-PR Rule):**
-  - **PR 1:** Minimal dependency swap only (`speedtest-cli==2.1.3` -> `speedtest-cli-ng==X.Y.Z` in `manifest.json` and `requirements_all.txt`) leveraging drop-in compatibility.
+  - **PR 1:** Minimal dependency swap only (`speedtest-cli==2.1.3` -> `speedtest-ng==X.Y.Z` in `manifest.json` and `requirements_all.txt`) leveraging drop-in compatibility.
   - **PR 2:** Follow-up PR after PR 1 merges to adopt `AsyncSpeedtest`, injectable `aiohttp.ClientSession`, `"loggers": ["speedtest"]`, jitter/bufferbloat sensors, and companion HA cleanup (`coordinator.servers` clearing, `DEFAULT_SERVER` constant in `config_flow.py`, upload assertion in `test_sensor.py`).
 - **Legacy Upstream Branches Note:** The mirror preserves 21 historical upstream branches (`24test`, `devel`, `modularize`, `socket`, etc.) for reference; confirm before pruning non-bot branches from `origin`.

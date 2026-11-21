@@ -40,7 +40,7 @@ def test_cli_version_csv_header_and_validation_errors(capsys: Any) -> None:
     """Verify --version, --csv-header, and invalid flag combinations."""
     main(["--version"])
     out = capsys.readouterr().out
-    assert "speedtest-cli-ng 3.0.0" in out
+    assert "speedtest-ng 3.0.0" in out
 
     main(["--csv-header"])
     assert capsys.readouterr().out.startswith("Server ID,Sponsor")

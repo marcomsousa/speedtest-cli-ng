@@ -1,4 +1,4 @@
-"""Data models, shared helpers, and result container for speedtest-cli-ng."""
+"""Data models, shared helpers, and result container for speedtest-ng."""
 
 from __future__ import annotations
 
@@ -78,7 +78,7 @@ def distance(
 
 def build_user_agent(version: str = __version__) -> str:
     """Build a Speedtest.net-friendly User-Agent header string."""
-    return f"speedtest-cli-ng/{version} Python/{platform.python_version()}"
+    return f"speedtest-ng/{version} Python/{platform.python_version()}"
 
 
 def do_nothing(*args: Any, **kwargs: Any) -> None:

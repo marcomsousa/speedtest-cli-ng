@@ -1,4 +1,4 @@
-"""Modern async & raw-TCP speedtest.net library and CLI (speedtest-cli-ng)."""
+"""Modern async & raw-TCP speedtest.net library and CLI (speedtest-ng)."""
 
 from __future__ import annotations
 

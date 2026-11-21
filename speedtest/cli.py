@@ -1,4 +1,4 @@
-"""Command-line interface for speedtest-cli-ng."""
+"""Command-line interface for speedtest-ng."""
 
 from __future__ import annotations
 
@@ -62,7 +62,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         description=(
             "Command line interface for testing internet bandwidth using "
             "speedtest.net.\n"
-            "https://github.com/marcomsousa/speedtest-cli-ng"
+            "https://github.com/marcomsousa/speedtest-ng"
         )
     )
     parser.add_argument(
@@ -214,7 +214,7 @@ def _handle_sigint(
 
 
 def shell(argv: Sequence[str] | None = None) -> None:
-    """Run the full speedtest-cli-ng CLI workflow."""
+    """Run the full speedtest-ng CLI workflow."""
     shutdown_event = threading.Event()
     previous_sigint: Any = None
     in_main_thread = threading.current_thread() is threading.main_thread()
@@ -235,7 +235,7 @@ def _run_shell(
     args = parse_args(argv)
 
     if args.version:
-        _printer(f"speedtest-cli-ng {__version__}")
+        _printer(f"speedtest-ng {__version__}")
         _printer(f"Python {sys.version.replace(chr(10), '')}")
         raise SystemExit(0)
 
