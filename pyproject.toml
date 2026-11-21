@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "speedtest-ng"
-version = "3.0.0"
+version = "3.0.1"
 description = "Modern async & raw-TCP command line interface and Python library for testing internet bandwidth using speedtest.net"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -81,6 +81,7 @@ known-first-party = ["speedtest"]
 python_version = "3.11"
 strict = true
 warn_unreachable = true
+warn_redundant_casts = true
 enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
 
 [tool.pytest.ini_options]

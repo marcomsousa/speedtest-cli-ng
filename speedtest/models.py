@@ -15,7 +15,7 @@ from .exceptions import ShareResultsConnectFailure
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-__version__ = "3.0.0"
+__version__ = "3.0.1"
 
 ProtocolName = Literal["auto", "tcp", "http"]
 ActiveProtocol = Literal["tcp", "http"]
@@ -47,6 +47,25 @@ class ServerDict(TypedDict, total=False):
     d: float
     latency: float
     https_functional: int | bool
+
+
+class ResultDict(TypedDict):
+    """Typed dictionary returned by ``SpeedtestResults.dict()``."""
+
+    download: float
+    upload: float
+    ping: float
+    server: dict[str, Any]
+    timestamp: str
+    bytes_sent: int
+    bytes_received: int
+    share: str | None
+    client: dict[str, Any]
+    jitter: float | None
+    loaded_ping_download: float | None
+    loaded_ping_upload: float | None
+    packet_loss: float | None
+    protocol: str | None
 
 
 def utc_timestamp_iso() -> str:
@@ -144,7 +163,7 @@ class SpeedtestResults:
         self._share = self._share_callback(self)
         return self._share
 
-    def dict(self) -> dict[str, Any]:
+    def dict(self) -> ResultDict:
         """Return dictionary of result data (preserving all legacy keys)."""
         return {
             "download": self.download,

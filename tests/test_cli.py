@@ -12,6 +12,7 @@ import aiohttp
 import pytest
 from aioresponses import aioresponses
 
+import speedtest
 from speedtest.cli import main, shell
 from speedtest.exceptions import SpeedtestCLIError
 from tests.conftest import SAMPLE_CONFIG_XML
@@ -40,7 +41,7 @@ def test_cli_version_csv_header_and_validation_errors(capsys: Any) -> None:
     """Verify --version, --csv-header, and invalid flag combinations."""
     main(["--version"])
     out = capsys.readouterr().out
-    assert "speedtest-ng 3.0.0" in out
+    assert f"speedtest-ng {speedtest.__version__}" in out
 
     main(["--csv-header"])
     assert capsys.readouterr().out.startswith("Server ID,Sponsor")

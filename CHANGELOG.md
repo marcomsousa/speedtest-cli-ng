@@ -5,6 +5,12 @@ All notable changes to `speedtest-ng` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.1] - 2026-11-21
+
+### Fixed
+
+- Typed `SpeedtestResults.dict()` with `ResultDict(TypedDict)` and widened `get_servers(servers=..., exclude=...)` sequence item annotations to `Sequence[int | str | None] | None` so Home Assistant Core's existing `SpeedTestDataCoordinator` (`cast(dict[str, Any], self.api.results.dict())` and `servers=[self.config_entry.options.get(CONF_SERVER_ID)]`) passes `mypy --warn-redundant-casts` without requiring integration code edits in the dependency bump PR.
+
 ## [3.0.0] - 2026-11-21
 
 ### Added

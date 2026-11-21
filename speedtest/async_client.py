@@ -123,8 +123,8 @@ class AsyncSpeedtest:
 
     async def get_servers(
         self,
-        servers: Sequence[int | str] | None = None,
-        exclude: Sequence[int | str] | None = None,
+        servers: Sequence[int | str | None] | None = None,
+        exclude: Sequence[int | str | None] | None = None,
     ) -> dict[float, list[dict[str, Any]]]:
         """Retrieve and optionally filter Speedtest.net servers."""
         if not self.config:

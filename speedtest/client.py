@@ -139,8 +139,8 @@ class Speedtest:
 
     def get_servers(
         self,
-        servers: Sequence[int | str] | None = None,
-        exclude: Sequence[int | str] | None = None,
+        servers: Sequence[int | str | None] | None = None,
+        exclude: Sequence[int | str | None] | None = None,
     ) -> dict[float, list[dict[str, Any]]]:
         """Retrieve and optionally filter speedtest.net servers."""
         return self._run_coro(

@@ -105,7 +105,7 @@ def resolve_server_url(server: Mapping[str, Any], *, secure: bool) -> str:
     return raw_url
 
 
-def _parse_server_id_list(values: Sequence[int | str] | None) -> set[int]:
+def _parse_server_id_list(values: Sequence[int | str | None] | None) -> set[int]:
     if not values:
         return set()
     parsed: set[int] = set()
@@ -328,8 +328,8 @@ async def fetch_servers(
     lat_lon: tuple[float, float],
     secure: bool = True,
     request_timeout: float = 10.0,
-    servers: Sequence[int | str] | None = None,
-    exclude: Sequence[int | str] | None = None,
+    servers: Sequence[int | str | None] | None = None,
+    exclude: Sequence[int | str | None] | None = None,
 ) -> dict[float, list[dict[str, Any]]]:
     """Retrieve and filter Speedtest.net servers (JSON primary + XML fallback)."""
     include_ids = _parse_server_id_list(servers)

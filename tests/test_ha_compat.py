@@ -7,7 +7,7 @@ import copy
 import logging
 import re
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, cast
 
 import aiohttp
 from aioresponses import aioresponses
@@ -107,7 +107,8 @@ async def test_ha_coordinator_executor_lifecycle(
             assert isinstance(api.closest, list)
             api.closest.clear()
 
-            filtered = api.get_servers(servers=[server_id])
+            opt_server_id: str | None = server_id
+            filtered = api.get_servers(servers=[opt_server_id])
             assert len(filtered) == 1
 
             best_server = api.get_best_server()
@@ -121,7 +122,7 @@ async def test_ha_coordinator_executor_lifecycle(
             assert dl_bps > 0.0
             assert ul_bps > 0.0
 
-            return api.results.dict()
+            return cast("dict[str, Any]", api.results.dict())
 
         first = await asyncio.to_thread(_ha_update_data, "1")
         for required_key in (
